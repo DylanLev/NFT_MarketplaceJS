@@ -1,0 +1,167 @@
+/* App.css */
+/* ... */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .search-bar button {
+    padding: 8px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+    font-weight: bold;
+    color: #333333;
+    cursor: pointer;
+  }
+  
+  main {
+    margin-top: 40px;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    color: #333333;
+  }
+  
+  p {
+    color: #777777;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .collection {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .collection img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 20px;
+  }
+  
+  .collection h3 {
+    font-size: 24px;
+    color: #333333;
+  }
+  
+  footer {
+    background-color: #333333;
+    padding: 20px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    header {
+      padding: 10px;
+    }
+  
+    nav ul li {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  
+    main {
+      margin-top: 20px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    .collection {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .collection img {
+      width: 100%;
+      height: auto;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .collection h3 {
+      font-size: 20px;
+    }
+  }
+  
