@@ -1,5 +1,5 @@
 // HomePage.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import logo from '../images/logo/logo.jpg';
@@ -7,15 +7,20 @@ import Carousel from './Carousel';
 import '../Styles.css';
 
 const HomePage = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearch = (event) => {
+      setSearchTerm(event.target.value);
+    };
   return (
     <div className="container">
       <header>
         <nav>
           <img src={logo} alt="Logo" className="logo" />
           <div className="search-bar">
-            <input type="text" placeholder="Search" />
-            <button>Search</button>
-          </div>
+        <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearch} />
+        <button>Search</button>
+      </div>
           <ul>
             <li>Discover</li>
             <li>Buy</li>
@@ -34,7 +39,8 @@ const HomePage = () => {
         </section>
         <section>
           <h2>Featured Collections</h2>
-          <Carousel />
+          
+      <Carousel searchTerm={searchTerm} />
         </section>
       </main>
       <footer>

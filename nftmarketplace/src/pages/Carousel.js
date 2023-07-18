@@ -53,7 +53,7 @@ const nftImages = [
   { image: nft24, name: 'Red Moon', price: Math.random() * 4 },
 ];
 
-const Carousel = () => {
+const Carousel = ({ searchTerm }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const goToPreviousSlide = () => {
@@ -63,6 +63,9 @@ const Carousel = () => {
   const goToNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === nftImages.length - 1 ? 0 : prevSlide + 1));
   };
+  const filteredImages = nftImages.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="carousel">
@@ -70,7 +73,7 @@ const Carousel = () => {
         &#8249;
       </button>
       <div className="carousel-images">
-        {nftImages.map((item, index) => (
+        {filteredImages.map((item, index) => (
           <Link key={index} to={`/NFTpage/${item.name}/${item.price}`}>
             <div
               className={`carousel-image ${index === currentSlide ? 'active' : ''}`}
