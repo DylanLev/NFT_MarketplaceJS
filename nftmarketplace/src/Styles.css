@@ -245,3 +245,22 @@ body {
     outline: none;
   }
   
+  /*NFT PAGE*/
+  .nft-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .image-container {
+    margin-top: 20px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
