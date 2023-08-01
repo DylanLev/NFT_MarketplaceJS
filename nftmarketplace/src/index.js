@@ -10,6 +10,7 @@ import WalletPage from './pages/WalletPage';
 import { createRoot } from 'react-dom';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import HomePageConnected from './pages/HomePageConnected';
 
 
 createRoot(document.getElementById('root')).render(
@@ -20,7 +21,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/LoginPage" element={<LoginPage />} />
       <Route path="/SignupPage" element={<SignupPage/>} />
 
-
+      <Route path="/index" element={<HomePageConnected />} />
       <Route path="/" element={<HomePage />} />
     </Routes>
   </BrowserRouter>
