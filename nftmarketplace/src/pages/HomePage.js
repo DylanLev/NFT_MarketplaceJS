@@ -23,15 +23,12 @@ const HomePage = () => {
       </div>
           <ul>
             <li>Discover</li>
-            <li>Buy</li>
-            <li>Sell</li>
+            
             <li>
               <Link to="/LoginPage">Login</Link>
             </li>
-            <li>My Collections</li>
-            <li>
-              <Link to="/WalletPage">Connect Wallet</Link>
-            </li>
+            
+            
           </ul>
         </nav>
       </header>

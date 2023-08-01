@@ -1,40 +1,39 @@
-// import React, { useState } from 'react';
+// // export default LoginPage;
+// import React, { useState, useEffect } from 'react';
+// import Papa from 'papaparse';
 // import { Link } from 'react-router-dom';
 // import userData from '../back/users.csv';
-
-// const parseCSV = (csvString) => {
-//   const lines = csvString.trim().split('\n');
-//   const headers = lines.shift().split(';'); 
-//   return lines.map((line) => {
-//     const values = line.split(';'); 
-//     const obj = {};
-//     headers.forEach((header, index) => {
-//       obj[header] = values[index];
-//     });
-//     return obj;
-//   });
-// };
-
 
 // const LoginPage = () => {
 //   const [username, setUsername] = useState('');
 //   const [password, setPassword] = useState('');
 //   const [loginError, setLoginError] = useState(false);
+//   const [usersData, setUsersData] = useState([]);
+
+//   useEffect(() => {
+//     const fetchUsersData = async () => {
+//       const response = await fetch(userData); // Assuming `userData` is the correct path to your CSV file.
+//       const csvData = await response.text();
+
+//       Papa.parse(csvData, {
+//         header: true,
+//         complete: (results) => {
+//           setUsersData(results.data);
+//         },
+//       });
+//     };
+
+//     fetchUsersData();
+//   }, []);
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
 
-//     // Parse the CSV data
-//     const usersData = parseCSV(userData);
-
-//     console.log('usersData:', usersData);
-//     console.log('username:', username);
-//     console.log('password:', password);
+//     console.log(usersData); // Check if usersData is populated with the parsed CSV data.
 
 //     // Check if the combination of username and password exists
-//     let isValidUser = true;
+//     let isValidUser = false;
 //     for (const user of usersData) {
-//       console.log('user:', user);
 //       if (user.username === username && user.password === password) {
 //         isValidUser = true;
 //         break;
@@ -53,6 +52,7 @@
 //   };
 
   // return (
+    
   //   <div className="login-page">
   //     <h1>Login</h1>
   //     <form onSubmit={handleSubmit}>
@@ -86,10 +86,12 @@
   //       <Link to="/">Back to Main page</Link>
   //     </button>
   //   </div>
+    
 //   );
 // };
 
 // export default LoginPage;
+
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import { Link } from 'react-router-dom';
@@ -134,8 +136,8 @@ const LoginPage = () => {
     console.log('isValidUser:', isValidUser);
 
     if (isValidUser) {
-      // Redirect to localhost:3000/index if the user exists
-      window.location.href = 'http://localhost:3000/index';
+      // Redirect to localhost:3000/index with the username as a parameter
+      window.location.href = `http://localhost:3000/index?username=${username}`;
     } else {
       // Show login error message
       setLoginError(true);
@@ -177,10 +179,7 @@ const LoginPage = () => {
         <Link to="/">Back to Main page</Link>
       </button>
     </div>
-    
   );
 };
 
 export default LoginPage;
-
-
