@@ -53,7 +53,7 @@ const nftImages = [
   { image: nft24, name: 'Red Moon', price: 0.001 },
 ];
 
-const Carousel = ({ searchTerm }) => {
+const Carousel = ({ searchTerm, usrname }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const goToPreviousSlide = () => {
@@ -68,13 +68,14 @@ const Carousel = ({ searchTerm }) => {
   );
 
   return (
+    
     <div className="carousel">
       <button className="carousel-navigation previous" onClick={goToPreviousSlide}>
         &#8249;
       </button>
       <div className="carousel-images">
         {filteredImages.map((item, index) => (
-          <Link key={index} to={`/NFTpage/${item.name}/${item.price}`}>
+          <Link key={index} to={`/NFTpage/${item.name}/${item.price}/${usrname}`}>
             <div
               className={`carousel-image ${index === currentSlide ? 'active' : ''}`}
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}

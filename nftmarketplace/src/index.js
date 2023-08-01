@@ -11,16 +11,16 @@ import { createRoot } from 'react-dom';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import HomePageConnected from './pages/HomePageConnected';
-
+import NFTpurchase from './pages/NFTpurchase';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/NFTpage/:name/:price" element={<NFTpage />} />
+      <Route path="/NFTpage/:name/:price/:username" element={<NFTpage />} />
       <Route path="/WalletPage" element={<WalletPage />} />
       <Route path="/LoginPage" element={<LoginPage />} />
       <Route path="/SignupPage" element={<SignupPage/>} />
-
+      <Route path="/purchase" element={<NFTpurchase />} />
       <Route path="/index" element={<HomePageConnected />} />
       <Route path="/" element={<HomePage />} />
     </Routes>
