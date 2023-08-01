@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/WalletPage" element={<WalletPage />} />
       <Route path="/LoginPage" element={<LoginPage />} />
       <Route path="/SignupPage" element={<SignupPage/>} />
-      <Route path="/purchase" element={<NFTpurchase />} />
+      <Route path="/purchase/:to/:from/:NFTname/:price" element={<NFTpurchase />} />
       <Route path="/index" element={<HomePageConnected />} />
       <Route path="/" element={<HomePage />} />
     </Routes>
