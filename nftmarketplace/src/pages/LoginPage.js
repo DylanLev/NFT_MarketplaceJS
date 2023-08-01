@@ -4,9 +4,9 @@
 
 // const parseCSV = (csvString) => {
 //   const lines = csvString.trim().split('\n');
-//   const headers = lines.shift().split(',');
+//   const headers = lines.shift().split(';'); 
 //   return lines.map((line) => {
-//     const values = line.split(',');
+//     const values = line.split(';'); 
 //     const obj = {};
 //     headers.forEach((header, index) => {
 //       obj[header] = values[index];
@@ -14,6 +14,7 @@
 //     return obj;
 //   });
 // };
+
 
 // const LoginPage = () => {
 //   const [username, setUsername] = useState('');
@@ -31,7 +32,7 @@
 //     console.log('password:', password);
 
 //     // Check if the combination of username and password exists
-//     let isValidUser = false;
+//     let isValidUser = true;
 //     for (const user of usersData) {
 //       console.log('user:', user);
 //       if (user.username === username && user.password === password) {
@@ -51,72 +52,75 @@
 //     }
 //   };
 
-//   return (
-//     <div className="login-page">
-//       <h1>Login</h1>
-//       <form onSubmit={handleSubmit}>
-//         <div className="form-group">
-//           <label htmlFor="username">Username</label>
-//           <input
-//             type="text"
-//             id="username"
-//             required
-//             value={username}
-//             onChange={(e) => setUsername(e.target.value)}
-//           />
-//         </div>
-//         <div className="form-group">
-//           <label htmlFor="password">Password</label>
-//           <input
-//             type="password"
-//             id="password"
-//             required
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//         </div>
-//         <button type="submit">Login</button>
-//       </form>
-//       {loginError && <div className="error-message">Invalid username/password combination</div>}
-//       <div className="signup-link">
-//         Don't have an account yet? <Link to="/SignupPage">Create one</Link>
-//       </div>
-//       <button id="mainbtn">
-//         <Link to="/">Back to Main page</Link>
-//       </button>
-//     </div>
+  // return (
+  //   <div className="login-page">
+  //     <h1>Login</h1>
+  //     <form onSubmit={handleSubmit}>
+  //       <div className="form-group">
+  //         <label htmlFor="username">Username</label>
+  //         <input
+  //           type="text"
+  //           id="username"
+  //           required
+  //           value={username}
+  //           onChange={(e) => setUsername(e.target.value)}
+  //         />
+  //       </div>
+  //       <div className="form-group">
+  //         <label htmlFor="password">Password</label>
+  //         <input
+  //           type="password"
+  //           id="password"
+  //           required
+  //           value={password}
+  //           onChange={(e) => setPassword(e.target.value)}
+  //         />
+  //       </div>
+  //       <button type="submit">Login</button>
+  //     </form>
+  //     {loginError && <div className="error-message">Invalid username/password combination</div>}
+  //     <div className="signup-link">
+  //       Don't have an account yet? <Link to="/SignupPage">Create one</Link>
+  //     </div>
+  //     <button id="mainbtn">
+  //       <Link to="/">Back to Main page</Link>
+  //     </button>
+  //   </div>
 //   );
 // };
 
 // export default LoginPage;
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Papa from 'papaparse';
 import { Link } from 'react-router-dom';
 import userData from '../back/users.csv';
-
-const parseCSV = (csvString) => {
-  const lines = csvString.trim().split('\n');
-  const headers = lines.shift().split(',');
-  return lines.map((line) => {
-    const values = line.split(',');
-    const obj = {};
-    headers.forEach((header, index) => {
-      obj[header] = values[index];
-    });
-    return obj;
-  });
-};
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState(false);
+  const [usersData, setUsersData] = useState([]);
+
+  useEffect(() => {
+    const fetchUsersData = async () => {
+      const response = await fetch(userData); // Assuming `userData` is the correct path to your CSV file.
+      const csvData = await response.text();
+
+      Papa.parse(csvData, {
+        header: true,
+        complete: (results) => {
+          setUsersData(results.data);
+        },
+      });
+    };
+
+    fetchUsersData();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Parse the CSV data
-    const usersData = parseCSV(userData);
+    console.log(usersData); // Check if usersData is populated with the parsed CSV data.
 
     // Check if the combination of username and password exists
     let isValidUser = false;
@@ -126,6 +130,8 @@ const LoginPage = () => {
         break;
       }
     }
+
+    console.log('isValidUser:', isValidUser);
 
     if (isValidUser) {
       // Redirect to localhost:3000/index if the user exists
@@ -137,6 +143,7 @@ const LoginPage = () => {
   };
 
   return (
+    
     <div className="login-page">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
@@ -170,8 +177,10 @@ const LoginPage = () => {
         <Link to="/">Back to Main page</Link>
       </button>
     </div>
+    
   );
 };
 
 export default LoginPage;
+
 
