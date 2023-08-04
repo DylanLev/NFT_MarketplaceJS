@@ -43,7 +43,6 @@ const NFTpage = () => {
       <h2>{price} ETH</h2>
       <p>Owned by {randomName}</p>
       <button onClick={handleBuyClick}>Buy this NFT</button>
-      <p>{username}</p>
     </div>
   );
 };
