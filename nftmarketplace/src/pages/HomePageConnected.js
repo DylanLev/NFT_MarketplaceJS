@@ -107,7 +107,7 @@ const HomePageConnected = (props) => {
       </header>
       <main>
         <section>
-          <h2>Welcome back {username} !</h2>
+        <h2 style={{ color: 'blue' }}>Welcome back {username} !</h2>
 
           <h1>Discover and collect</h1>
           <p>Discover, collect, and sell extraordinary NFTs on the world's first and largest NFT marketplace.</p>

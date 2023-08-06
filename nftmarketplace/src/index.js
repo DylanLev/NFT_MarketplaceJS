@@ -12,6 +12,10 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import HomePageConnected from './pages/HomePageConnected';
 import NFTpurchase from './pages/NFTpurchase';
+import DisplayEthAdresses from './pages/DisplayEthAdresses';
+import SuccessfulPurchase from './pages/SuccesfulPurchasePage';
+import FailurePurchase from './pages/FailurePurchasePage';
+
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -22,6 +26,12 @@ createRoot(document.getElementById('root')).render(
       <Route path="/SignupPage" element={<SignupPage/>} />
       <Route path="/purchase/:to/:from/:NFTname/:price" element={<NFTpurchase />} />
       <Route path="/index" element={<HomePageConnected />} />
+      <Route path="/successful/:username" element={<SuccessfulPurchase />} />
+      <Route path="/failure/:username" element={<FailurePurchase />} />
+
+      {/* <Route path="/display" element={<DisplayEthAdresses />} /> */}
+
+     
       <Route path="/" element={<HomePage />} />
     </Routes>
   </BrowserRouter>
