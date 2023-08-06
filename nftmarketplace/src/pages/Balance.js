@@ -5,7 +5,7 @@ const Balance = () => {
   const [balance, setBalance] = useState(null);
   const ethAddress = useEthAddress();
   const etherscanApiKey = '4S26PU2HJGYJWEFUMUK4S4P4NMMN8PBJ81';
-  console.log("Eth Address:", ethAddress);
+  
 
 
   useEffect(() => {
