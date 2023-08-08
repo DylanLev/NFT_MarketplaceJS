@@ -16,12 +16,12 @@ const HomePage = () => {
     <div className="container">
       <header>
         <nav>
-          <img src={logo} alt="Logo" className="logo" />
-          <div className="search-bar">
+          <img src={logo} alt="Logo" className="logo" style={{paddingRight: '30px'}}/>
+          <div className="search-bar" style={{border: '1px solid black', borderRadius: '5px'}}>
         <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearch} />
         <button>Search</button>
       </div>
-          <ul>
+          <ul style={{paddingLeft: '40px', paddingRight: '70px'}}>
             <li>Discover</li>
             
             <li>
@@ -34,11 +34,11 @@ const HomePage = () => {
       </header>
       <main>
         <section>
-          <h1>Discover and collect</h1>
-          <p>Discover, collect, and sell extraordinary NFTs on the world's first and largest NFT marketplace.</p>
+          <h1 style={{textAlign: 'center'}}>Discover and collect</h1>
+          <p style={{textAlign: 'center', color: 'black'}}>Discover, collect, and sell extraordinary NFTs on the world's first and largest NFT marketplace.</p>
         </section>
         <section>
-          <h2>Featured Collections</h2>
+          <h2 style={{textAlign: 'center'}}>Featured Collections</h2>
           
       <Carousel searchTerm={searchTerm} />
         </section>

@@ -5,7 +5,7 @@ const Balance = () => {
   const [balance, setBalance] = useState(null);
   const ethAddress = useEthAddress();
   const etherscanApiKey = '4S26PU2HJGYJWEFUMUK4S4P4NMMN8PBJ81';
-  
+  console.log("Eth Address:", ethAddress);
 
 
   useEffect(() => {
@@ -33,9 +33,8 @@ const Balance = () => {
 
   return (
     <div>
-      <h2>Balance: </h2>
       {balance !== null ? (
-        <p style={{ color: 'white' }}>{balance.toFixed(4)} ETH</p>
+        <p style={{ color: 'white' }}> Balance : {balance.toFixed(4)} ETH</p>
       ) : (
         <p style={{ color: 'white' }}>Failed to fetch balance.</p>
       )}

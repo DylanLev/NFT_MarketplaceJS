@@ -86,19 +86,20 @@ const HomePageConnected = (props) => {
     <div className="container">
       <header>
         <nav>
-          <img src={logo} alt="Logo" className="logo" />
-          <div className="search-bar">
+          <img src={logo} alt="Logo" className="logo" style={{paddingRight: '30px'}} />
+          <div className="search-bar" style={{border: '1px solid black', borderRadius: '5px'}}>
             <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearch} />
             <button>Search</button>
           </div>
-          <div style={{ position: 'relative', width: 'fit-content', margin: '0 auto', background: 'blue', color: 'white', padding: '10px' }}>
+          <div style={{ position: 'relative', width: 'fit-content', margin: '0 auto', background: 'blue', color: 'white', padding: '5px', borderRadius: '8px', paddingLeft: '10px', paddingRight: '10px' }}>
             <Balance />
           </div>
-          <ul>
+          <ul style={{paddingLeft: '40px', paddingRight: '70px'}}>
             <li>Discover</li>
             <li>Buy</li>
-            <li>Sell</li>
-
+            <li>
+              <Link to="/SellPage">Sell</Link>
+            </li>
             <li>
               <Link to="/WalletPage">Connect Wallet</Link>
             </li>
@@ -107,14 +108,14 @@ const HomePageConnected = (props) => {
       </header>
       <main>
         <section>
-        <h2 style={{ color: 'blue' }}>Welcome back {username} !</h2>
+        <h2 style={{ color: 'blue', textAlign: 'center' }}>Welcome back {username} !</h2>
 
-          <h1>Discover and collect</h1>
-          <p>Discover, collect, and sell extraordinary NFTs on the world's first and largest NFT marketplace.</p>
+          <h1 style={{textAlign: 'center', color: 'black'}}>Discover and collect</h1>
+          <p style={{textAlign: 'center', color: 'black'}}>Discover, collect, and sell extraordinary NFTs on the world's first and largest NFT marketplace.</p>
         </section>
 
         <section>
-          <h2>Featured Collections</h2>
+          <h2 style={{textAlign: 'center'}}>Featured Collections</h2>
           <Carousel searchTerm={searchTerm} usrname={username} />
         </section>
       </main>
@@ -129,4 +130,3 @@ const HomePageConnected = (props) => {
 };
 
 export default HomePageConnected;
-

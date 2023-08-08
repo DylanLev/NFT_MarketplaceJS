@@ -15,7 +15,7 @@ import NFTpurchase from './pages/NFTpurchase';
 import DisplayEthAdresses from './pages/DisplayEthAdresses';
 import SuccessfulPurchase from './pages/SuccesfulPurchasePage';
 import FailurePurchase from './pages/FailurePurchasePage';
-
+import SellPage from './pages/SellPage';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -28,7 +28,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/index" element={<HomePageConnected />} />
       <Route path="/successful/:username" element={<SuccessfulPurchase />} />
       <Route path="/failure/:username" element={<FailurePurchase />} />
-
+      <Route path="/SellPage" element={<SellPage />} />
       {/* <Route path="/display" element={<DisplayEthAdresses />} /> */}
 
      
