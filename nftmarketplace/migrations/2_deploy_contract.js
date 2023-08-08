@@ -11,4 +11,4 @@ module.exports = function (deployer) {
     // You can interact with the contract or do any post-deployment tasks here
   });
 };
-/* eslint-enable no-undef */
+
